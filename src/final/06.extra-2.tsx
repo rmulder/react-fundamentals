@@ -16,13 +16,11 @@ function UsernameForm({onSubmitUsername}) {
 
   function handleSubmit(event: React.SyntheticEvent<UsernameFormElement>) {
     event.preventDefault()
-    const form = event.target as UsernameFormElement
-
-    onSubmitUsername(form.elements.usernameInput.value)
+    onSubmitUsername(event.currentTarget.elements.usernameInput.value)
   }
 
   function handleChange(event: React.SyntheticEvent<HTMLInputElement>) {
-    const {value} = event.target as HTMLInputElement
+    const {value} = event.currentTarget
     const isLowerCase = value === value.toLowerCase()
     setError(isLowerCase ? null : 'Username must be lower case')
   }
